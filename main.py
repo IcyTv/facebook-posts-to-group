@@ -3,6 +3,9 @@
 #Add your access token with the scope: publish_actions, user_posts, user_managed_groups.
 #You can set the scopes at https://developers.facebook.com/tools/explorer
 access_token = ""
+app_id = ""
+app_secret = ""
+
 #Add your groups id. You can find it by going to your group and copy pasting the number between the slashes
 #https://www.facebook.com/groups/{THIS NUMBER}/
 group_id = ""
@@ -26,4 +29,5 @@ if __name__ == "__main__":
 			last_post_id = data["data"][0]["id"]
 			graph.put_object(group_id, connection_name="feed", message="A new post from " + name + "\n" + data["data"][0]["story"])
 		time.sleep(5*60)
+		graph.extend_access_token(app_id, app_secret)
 		print "Sleeping"
