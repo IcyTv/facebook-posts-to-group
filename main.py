@@ -24,6 +24,6 @@ if __name__ == "__main__":
 			print "NEW POST AVAILABLE"
 			print data["data"][0]["story"]
 			last_post_id = data["data"][0]["id"]
-			graph.put_object(group_id, connection_name="feed", message="A new post from " + name + "\n" + data["data"][0]["story"])["id"]
+			graph.put_object(group_id, connection_name="feed", message="A new post from " + name + "\n" + data["data"][0]["story"])
 		time.sleep(5*60)
 		print "Sleeping"
